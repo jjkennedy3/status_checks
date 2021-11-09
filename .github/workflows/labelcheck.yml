@@ -1,0 +1,15 @@
+name: Label Check
+on:
+  pull_request:
+    types: [opened, labeled, unlabeled, synchronize]
+
+jobs:
+  manual-qa-check:
+    runs-on: ubuntu-latest
+    name: Label Check
+    steps:
+      - name: Label Check
+        id: label-check
+        uses: mlg87/label-check-action@v1.0.0
+        with:
+          label-name-to-watch-for: "enhancement"
